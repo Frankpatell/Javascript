@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling Tickling</title>
+</head>
+<style>
+    div{
+        padding: 10px;
+    }
+</style>
+<body>
+    <div class="great-great-parent">
+        Body ( great-great-grandparent )
+        <div class="great-grand-parent">
+          div (great-grandparent )
+            <div class="grand-parent">
+               ul( grandparent )
+                <div class="parent">li (direct parent)
+                    <div class="child">
+                        spna
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   <script src="./js/jquery-3.7.1.min.js"></script>
+
+
+   <script>
+      $(document).ready(function () {
+           $('.child').parents().css({border: '3px solid green'})
+           $('.parent').parents().css({border: '3px solid red'})
+           $('.grand-parent').parents().css({border: '3px solid blue'})
+           $('.great-grand-parent').parents().css({border: '3px solid black'})
+           $('.great-great-parent').parents().css({border: '3px solid red'})
+
+
+     });
+   </script>
+</body>
+</html>
